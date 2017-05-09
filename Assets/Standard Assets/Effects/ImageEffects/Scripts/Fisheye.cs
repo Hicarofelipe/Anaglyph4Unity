@@ -14,7 +14,7 @@ namespace UnityStandardAssets.ImageEffects
         public float strengthY = 0.05f;
 
 		public RenderTexture RightEye;
-
+		public RenderTexture LeftEye;
         public Shader fishEyeShader = null;
         private Material fisheyeMaterial = null;
 
@@ -42,6 +42,7 @@ namespace UnityStandardAssets.ImageEffects
             float ar = (source.width * 1.0f) / (source.height * 1.0f);
 
 			fisheyeMaterial.SetTexture ("_RightEye",RightEye);
+			fisheyeMaterial.SetTexture ("_LeftEye",LeftEye);
             Graphics.Blit (source, destination, fisheyeMaterial);
         }
     }
