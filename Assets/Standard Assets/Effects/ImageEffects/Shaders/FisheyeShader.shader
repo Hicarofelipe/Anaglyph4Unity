@@ -16,6 +16,7 @@ Shader "Hidden/FisheyeShader" {
 	sampler2D _MainTex;
 	half4 _MainTex_ST;
 	sampler2D _RightEye;
+	sampler2D _LeftEye;
 	float2 intensity;
 	
 	v2f vert( appdata_img v ) 
@@ -28,9 +29,10 @@ Shader "Hidden/FisheyeShader" {
 	
 	half4 frag(v2f i) : COLOR 
 	{
-		float4 c = tex2D(_MainTex, i.uv);
-		float4 c2 = tex2D(_RightEye, i.uv);		
-				float4 result = c;
+		
+		float4 c2 = tex2D(_RightEye, i.uv);	
+		float4 c3 = tex2D(_LeftEye, i.uv);		
+				float4 result = c3;
 				result.g = 0;
 				result.b = c2.b;
 				return result;
